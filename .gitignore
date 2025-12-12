@@ -1,0 +1,79 @@
+# -------------------------
+# Python / Virtualenv
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+logs/
+
+# Byte-compiled / temporary
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Jupyter (if ever used)
+.ipynb_checkpoints/
+
+# -------------------------
+# OS / Editor Specific
+# -------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# VSCode
+.vscode/
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+
+# -------------------------
+# OCR Project Specific
+# -------------------------
+
+# Uploaded and redacted images
+uploads/
+redacted/
+
+# EasyOCR models and cache (if stored locally)
+models/
+.easyocr/
+
+# Any temporary test images
+test_images/
+tmp/
+
+# Flask / debug stuff
+instance/
+*.sqlite3
+*.db
+
+# -------------------------
+# Node / front-end (if added later)
+# -------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
