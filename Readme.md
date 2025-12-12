@@ -255,7 +255,4 @@ Possible improvements:
 *   Highlight overlays instead of hard black boxes for redaction previews.
     
 
-License
--------
 
-Add your preferred license here (for example, MIT) and save it as LICENSE in the repo.
