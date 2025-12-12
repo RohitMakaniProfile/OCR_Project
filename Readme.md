@@ -42,7 +42,18 @@ Features
 Project Structure
 -----------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   textOCR_Project/    app.py                     # Flask backend    ocr_pipeline_easyocr.py    # Main OCR + PII + redaction pipeline    Code_File/                 # (if you keep this name, adjust paths in app.py)      assets/                  # Sample images / static assets      templates/        index.html             # Web UI for upload + results      uploads/                 # Uploaded images (created at runtime)      redacted/                # Redacted output images (created at runtime)    .venv/                     # Optional virtualenv (not committed)    README.md                  # This file   `
+OCR_Project/
+  app.py                     # Flask backend
+  ocr_pipeline_easyocr.py    # Main OCR + PII + redaction pipeline
+  Code_File/                 # (if you keep this name, adjust paths in app.py)
+    assets/                  # Sample images / static assets
+    templates/
+      index.html             # Web UI for upload + results
+    uploads/                 # Uploaded images (created at runtime)
+    redacted/                # Redacted output images (created at runtime)
+  .venv/                     # Optional virtualenv (not committed)
+  README.md                  # This file
+
 
 Only these are strictly required to run the assignment solution:
 
@@ -145,18 +156,24 @@ Installation
 
 1\. Clone the Repository
 ------------------------
+git clone https://github.com/RohitMakaniProfile/OCR_Project.git
+cd OCR_Project
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashgit clone https://github.com/RohitMakaniProfile/OCR_Project.git  cd OCR_Project   `
 
 2\. Create and Activate Virtualenv (recommended)
 ------------------------------------------------
+python -m venv .venv
+# macOS / Linux
+source .venv/bin/activate
+# Windows (PowerShell)
+# .venv\Scripts\Activate.ps1
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashpython -m venv .venv  # macOS / Linux  source .venv/bin/activate  # Windows (PowerShell)  # .venv\Scripts\Activate.ps1   `
 
 3\. Install Dependencies
 ------------------------
+pip install --upgrade pip
+pip install flask easyocr opencv-python numpy
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashpip install --upgrade pip  pip install flask easyocr opencv-python numpy   `
 
 On macOS using the official python.org installer, run the Install Certificates.command script once if EasyOCR fails to download models due to SSL errors.
 
@@ -165,11 +182,13 @@ Running the Web App
 
 From the project root (where app.py lives):
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashpython app.py   `
+python app.py
 
 You should see something like:
+* Serving Flask app 'app'
+* Debug mode: on
+* Running on http://127.0.0.1:5000/
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   text* Serving Flask app 'app'  * Debug mode: on  * Running on http://127.0.0.1:5000/   `
 
 Then:
 
@@ -189,17 +208,6 @@ Then:
         
     *   Full recognized text
         
-
-Command‑Line Usage (Optional)
------------------------------
-
-ocr\_pipeline\_easyocr.py can also be used directly from the terminal:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashpython ocr_pipeline_easyocr.py path/to/input.jpg path/to/output_redacted.jpg   `
-
-*   If output\_redacted.jpg is provided, a redacted image is generated.
-    
-*   The script prints a JSON object with full\_text, pii\_items, redacted\_path, and is\_double\_page.
     
 
 Assignment Alignment
